@@ -1,0 +1,39 @@
+.indexStyle {
+  background-repeat: no-repeat;
+  background-size: cover;
+  form {
+    border: 1.5px solid #ffffff;
+    background-color: #ffffffa3;
+    h4 {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 1.7rem;
+    }
+    div {
+      width: 90%;
+      border-bottom: 1px solid #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      label {
+        color: #5a5a5a;
+      }
+      input {
+        color: #484444;
+        padding-inline-start: 0.5rem;
+      }
+    }
+    button{
+        background-color: #191919;
+        color: #ffffff;
+        width: 90%;
+    }
+    span {
+      font-size: 1.1rem;
+      font-weight: 600;
+      width: 90%;
+      a {
+        color: #484444;
+      }
+    }
+  }
+}
