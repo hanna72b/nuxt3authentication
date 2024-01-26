@@ -18,5 +18,13 @@
     "tailwindcss": "^3.4.1",
     "vue": "^3.4.6",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.4",
+    "axios": "^1.6.5",
+    "pinia": "^2.1.7",
+    "tailwind-scrollbar": "^3.0.5"
   }
 }

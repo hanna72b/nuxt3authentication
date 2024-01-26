@@ -1,0 +1,97 @@
+.indexStyle {
+  background-repeat: no-repeat;
+  background-size: cover;
+  form {
+    height: 85%;
+    border: 1.5px solid #ffffff;
+    background-color: #ffffffa3;
+    box-shadow: 0px 0px 12px 1px #191919;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    --scrollbar-thumb: #6c6c6c99 !important;
+    h4 {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 1.7rem;
+    }
+    div {
+      // background: #ffffff;
+      // border-radius: 0.375rem;
+      padding: 0.4rem;
+      width: 90%;
+      border-bottom: 1px solid #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      label {
+        color: #5a5a5a;
+      }
+      input {
+        color: #000000;
+        padding-inline-start: 0.5rem;
+        width: -webkit-fill-available;
+      }
+      img {
+        width: 21px;
+      }
+    }
+    small {
+      width: 90%;
+      color: rgb(186 36 19);
+    }
+    button {
+      background-color: #191919;
+      box-shadow: 0px 0px 12px 1px #191919;
+      color: #ffffff;
+      width: 90%;
+    }
+    button:hover {
+      background-color: #818080;
+      color: #000000;
+      box-shadow: 0px 0px 18px 3px #191919;
+    }
+    span {
+      font-size: 1.1rem;
+      font-weight: 600;
+      width: 90%;
+      a {
+        color: #484444;
+      }
+      a:hover {
+        color: #1a4398;
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 639px) {
+  .indexStyle {
+    form {
+      width: 90%;
+      // height: 70%;
+      padding: 0px;
+    }
+  }
+}
+// tablet
+@media (min-width: 640px) and (max-width: 1023px) {
+  .indexStyle {
+    form {
+      width: 75%;
+      // height: 70%;
+      padding: 0px;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  // height: 75%;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  border-color: transparent !important;
+  border-radius: 10px;
+  margin-left: 3px;
+  font-size: 0.95rem;
+}
