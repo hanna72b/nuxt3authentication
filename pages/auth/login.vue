@@ -11,7 +11,7 @@
       </nuxtLink>
       <h4 class="">login</h4>
 
-      <div class="mt-10 flex">
+      <div class="mt-10 flex border-b">
         <label class="" for="mobile">mobile:</label>
         <input
           v-model.lazy.trim="formData.mobile"
@@ -25,7 +25,7 @@
         v$.mobile.$errors[0].$message
       }}</small>
 
-      <div class="mt-3 flex justify-between items-center">
+      <div class="mt-3 flex justify-between items-center border-b">
         <label class="" for="password">password:</label>
         <input
           v-model.lazy.trim="formData.password"
@@ -53,6 +53,12 @@
         <span v-else>Loading . . . </span>
       </button>
 
+      <GoogleSignInButton
+        class="google-button"
+        @success="handleLoginSuccess"
+        @error="handleLoginError"
+      ></GoogleSignInButton>
+
       <span class="flex items-center justify-between mt-10">
         <NuxtLink class="" to="/auth/forgetPassword">forget password</NuxtLink>
         <NuxtLink to="/auth/register">sign up </NuxtLink>
@@ -66,10 +72,30 @@ import { ref, onMounted, provide } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, minLength, integer, helpers } from "@vuelidate/validators";
 // import axios from "axios";
+import { GoogleSignInButton } from "vue3-google-signin";
+import axios from "axios";
 
 definePageMeta({
   layout: false,
 });
+
+const handleLoginSuccess = async (response) => {
+  const { credential } = response;
+  let user;
+
+  if (credential) {
+    user = await axios.post("/api/google-login-post", {
+      token: credential,
+    });
+  }
+
+  console.log("user:", user);
+};
+
+// handle an error event
+const handleLoginError = () => {
+  console.error("Login failed");
+};
 
 const toggleHide = ref(false);
 const inputType = computed(() => (toggleHide.value ? "text" : "password"));
@@ -127,3 +153,5 @@ function login() {
   }
 }
 </script>
+
+<style></style>

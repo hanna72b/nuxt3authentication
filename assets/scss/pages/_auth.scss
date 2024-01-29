@@ -19,7 +19,6 @@
       // border-radius: 0.375rem;
       padding: 0.4rem;
       width: 90%;
-      border-bottom: 1px solid #ffffff;
       font-size: 1.1rem;
       font-weight: 600;
       label {
@@ -32,6 +31,18 @@
       }
       img {
         width: 21px;
+      }
+    }
+    .google-button {
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      padding: 0px !important ;
+      .S9gUrf-YoZ4jf {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
     small {

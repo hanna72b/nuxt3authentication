@@ -11,7 +11,7 @@
       </nuxtLink>
       <h4 class="">register</h4>
 
-      <div class="mt-10 flex">
+      <div class="mt-10 flex border-b">
         <label class="text-nowrap" for="firstName">first name:</label>
         <input
           v-model.lazy.trim="formData.firstName"
@@ -25,7 +25,7 @@
         v$.firstName.$errors[0].$message
       }}</small>
 
-      <div class="mt-10 flex">
+      <div class="mt-10 flex border-b">
         <label class="text-nowrap" for="lastName">last name:</label>
         <input
           v-model.lazy.trim="formData.lastName"
@@ -39,7 +39,7 @@
         v$.lastName.$errors[0].$message
       }}</small>
 
-      <div class="mt-6 flex">
+      <div class="mt-6 flex border-b">
         <label class="" for="mobile">mobile:</label>
         <input
           v-model.lazy.trim="formData.mobile"
@@ -53,7 +53,7 @@
         v$.mobile.$errors[0].$message
       }}</small>
 
-      <div class="mt-6 flex justify-between items-center">
+      <div class="mt-6 flex justify-between items-center border-b">
         <label class="" for="password">password:</label>
         <input
           v-model.lazy.trim="formData.password"

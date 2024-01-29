@@ -11,7 +11,7 @@
       </nuxtLink>
       <h4 class="">restore password</h4>
 
-      <div class="mt-6 flex justify-between items-center">
+      <div class="mt-6 flex justify-between items-center border-b">
         <label class="" for="password">password:</label>
         <input
           v-model.lazy.trim="formData.password"
@@ -29,7 +29,7 @@
         v$.password.$errors[0].$message
       }}</small>
 
-      <div class="mt-3 flex justify-between items-center">
+      <div class="mt-3 flex justify-between items-center border-b">
         <label class="text-nowrap" for="repeatPassword">repeat password:</label>
         <input
           v-model.lazy.trim="formData.repeatPassword"

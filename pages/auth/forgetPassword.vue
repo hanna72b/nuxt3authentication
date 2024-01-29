@@ -11,7 +11,7 @@
       </nuxtLink>
       <h4 class="">forget password</h4>
 
-      <div class="mt-10 flex">
+      <div class="mt-10 flex border-b">
         <label class="">mobile:</label>
         <span class="text-center">09923244836</span>
       </div>
