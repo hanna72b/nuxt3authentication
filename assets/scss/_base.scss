@@ -1,5 +1,6 @@
 body {
   background-color: rgb(80, 79, 79);
+  font-family: cursive;
 }
 .page-enter-active,
 .page-leave-active {
@@ -9,4 +10,10 @@ body {
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+
+@media (max-width: 767px) {
+  .beBlur {
+    filter: blur(4px);
+  }
 }

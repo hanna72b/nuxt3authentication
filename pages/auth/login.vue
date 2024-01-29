@@ -67,6 +67,10 @@ import { useVuelidate } from "@vuelidate/core";
 import { required, minLength, integer, helpers } from "@vuelidate/validators";
 // import axios from "axios";
 
+definePageMeta({
+  layout: false,
+});
+
 const toggleHide = ref(false);
 const inputType = computed(() => (toggleHide.value ? "text" : "password"));
 

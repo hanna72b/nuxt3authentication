@@ -13,6 +13,6 @@ export default defineNuxtConfig({
   css: ["~/assets/scss/main.scss", "~/assets/font-icon/style.css"],
   modules: ["@pinia/nuxt"],
   pinia: {
-    storesDirs: ["./stores/index"],
+    // storesDirs: ["./stores/index"],
   },
 });

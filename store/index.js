@@ -2,7 +2,13 @@ import { defineStore } from "pinia";
 
 export const useStorPinia = defineStore({
   id: "changeLang",
-  state: () => ({}),
+  state: () => ({
+    showSidebar: false,
+  }),
   getters: {},
-  actions: {},
+  actions: {
+    closeSidebar() {
+      this.showSidebar = false;
+    },
+  },
 });

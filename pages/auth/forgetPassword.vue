@@ -33,6 +33,10 @@
 import { ref, onMounted, provide } from "vue";
 // import axios from "axios";
 
+definePageMeta({
+  layout: false,
+});
+
 const loading = ref(false);
 const isDisabled = ref(false);
 
