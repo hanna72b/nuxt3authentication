@@ -7,7 +7,7 @@
       class="w-full text-end text-white"
       @click="usePinia.showSidebar = false"
     >
-      close
+      <i class="icon-cross"></i>
     </button>
 
     <ul class="flex flex-col gap-5 mt-4">

@@ -18,7 +18,9 @@
 
     <div class="defaultStyle__navbar-menuList hidden md:flex">
       <ul class="flex gap-3">
-        <li><nuxt-link to="/auth/login">Login</nuxt-link></li>
+        <li >
+          <nuxt-link to="/auth/login">Login</nuxt-link>
+        </li>
         <li><nuxt-link to="/auth/register">Register</nuxt-link></li>
       </ul>
     </div>
@@ -35,4 +37,6 @@
 <script setup>
 import { useStorPinia } from "~/store/index";
 const usePinia = useStorPinia();
+
+
 </script>

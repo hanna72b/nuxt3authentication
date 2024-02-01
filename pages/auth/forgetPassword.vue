@@ -18,7 +18,7 @@
 
       <button
         :class="{ 'cursor-not-allowed': loading }"
-        class="py-2 rounded-md mt-10"
+        class="py-2 rounded-md mt-10 mb-5"
         type="submit"
         :disabled="isDisabled"
       >

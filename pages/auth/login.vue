@@ -25,6 +25,8 @@
         v$.mobile.$errors[0].$message
       }}</small>
 
+     
+
       <div class="mt-3 flex justify-between items-center border-b">
         <label class="" for="password">password:</label>
         <input
@@ -75,6 +77,8 @@ import { required, minLength, integer, helpers } from "@vuelidate/validators";
 import { GoogleSignInButton } from "vue3-google-signin";
 import axios from "axios";
 
+
+
 definePageMeta({
   layout: false,
 });
@@ -112,8 +116,11 @@ const formData = reactive({
   password: "",
 });
 
+
+
 const validations = computed(() => {
   return {
+
     mobile: {
       required: helpers.withMessage("mobile number is required", required),
       integer: helpers.withMessage("please enter a numbervb", integer),
