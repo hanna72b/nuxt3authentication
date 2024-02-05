@@ -93,6 +93,8 @@ const handleLoginSuccess = async (response) => {
   }
 
   console.log("user:", user);
+   // اجازه ورود به داشبورد صادر می شود
+   usePinia.permissionToDashboard = true;
   navigateTo("/dashboard");
 };
 
