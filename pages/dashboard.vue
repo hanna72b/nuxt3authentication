@@ -3,3 +3,10 @@
     <h3>dashboard page</h3>
   </div>
 </template>
+
+<script setup>
+  definePageMeta({
+      middleware: ["auth"]
+    });
+    
+    </script>

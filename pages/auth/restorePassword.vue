@@ -75,7 +75,6 @@ import {
   helpers,
   sameAs,
 } from "@vuelidate/validators";
-// import axios from "axios";
 
 definePageMeta({
   layout: false,
@@ -127,11 +126,21 @@ function reStore() {
   if (!v$.value.$error) {
     loading.value = true;
     console.log("formData :", formData);
+
+    //FIXME with real data and api
+    //   try {
+    //   const response = await api.post(
+    //     "restorePassword" , formData
+    //   );
+    //   const data = response.data;
+
+    //   console.log("داده دریافت شد", data);
+    // } catch (error) {
+    //   console.error("داده دریافت نشد", error);
+    // }
+
     loading.value = false;
-    //FIXME
-    // useData.isShowLoginOtp = true;
-    // console.log("pinia:", useData.isShowLoginOtp);
-    // navigateTo("/auth/loginOtp");
+    navigateTo("/auth/login");
   }
 }
 </script>

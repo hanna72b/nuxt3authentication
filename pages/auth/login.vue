@@ -75,7 +75,9 @@ import axios from "axios";
 import { GoogleSignInButton } from "vue3-google-signin";
 // import axios from "axios";
 import api from "@/plugins/axios";
+import { useStorPinia } from "~/store/index";
 
+const usePinia = useStorPinia();
 definePageMeta({
   layout: false,
 });
@@ -161,6 +163,8 @@ async function login() {
     // }
 
     loading.value = false;
+    // اجازه ورود به داشبورد صادر می شود
+    usePinia.permissionToDashboard = true;
     navigateTo("/dashboard");
   }
 }

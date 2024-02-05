@@ -12,7 +12,7 @@
         <li>
           <nuxt-link to="/">Home</nuxt-link>
         </li>
-        <li><nuxt-link to="/dashboard">Dashboard</nuxt-link></li>
+        <li v-if="usePinia.permissionToDashboard"><nuxt-link to="/dashboard">Dashboard</nuxt-link></li>
       </ul>
     </div>
 

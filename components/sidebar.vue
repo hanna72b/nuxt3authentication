@@ -22,6 +22,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+  middleware: ["auth"],
+});
+
 import { useStorPinia } from "~/store/index";
 const usePinia = useStorPinia();
 </script>
