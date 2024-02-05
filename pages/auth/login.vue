@@ -25,8 +25,6 @@
         v$.mobile.$errors[0].$message
       }}</small>
 
-     
-
       <div class="mt-3 flex justify-between items-center border-b">
         <label class="" for="password">password:</label>
         <input
@@ -73,11 +71,10 @@
 import { ref, onMounted, provide } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, minLength, integer, helpers } from "@vuelidate/validators";
-// import axios from "axios";
-import { GoogleSignInButton } from "vue3-google-signin";
 import axios from "axios";
-
-
+import { GoogleSignInButton } from "vue3-google-signin";
+// import axios from "axios";
+import api from "@/plugins/axios";
 
 definePageMeta({
   layout: false,
@@ -94,6 +91,7 @@ const handleLoginSuccess = async (response) => {
   }
 
   console.log("user:", user);
+  navigateTo("/dashboard");
 };
 
 // handle an error event
@@ -116,11 +114,8 @@ const formData = reactive({
   password: "",
 });
 
-
-
 const validations = computed(() => {
   return {
-
     mobile: {
       required: helpers.withMessage("mobile number is required", required),
       integer: helpers.withMessage("please enter a numbervb", integer),
@@ -147,15 +142,25 @@ const validations = computed(() => {
 });
 const v$ = useVuelidate(validations, formData);
 
-function login() {
+async function login() {
   v$.value.$validate();
   if (!v$.value.$error) {
     loading.value = true;
     console.log("formData :", formData);
+
+    //FIXME with real data and api
+    //   try {
+    //   const response = await api.post(
+    //     "login" , formData
+    //   );
+    //   const data = response.data;
+
+    //   console.log("داده دریافت شد", data);
+    // } catch (error) {
+    //   console.error("داده دریافت نشد", error);
+    // }
+
     loading.value = false;
-    //FIXME
-    // useData.isShowLoginOtp = true;
-    // console.log("pinia:", useData.isShowLoginOtp);
     navigateTo("/dashboard");
   }
 }
