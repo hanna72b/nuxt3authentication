@@ -3,29 +3,32 @@
     class="indexStyle bg-[url('@/assets/images/side-login.jpg')] test w-full h-screen flex justify-center items-center"
   >
     <form
-      @submit.prevent="sendLink()"
-      class="indexStyle-form h-3/4 w-5/12 flex flex-col items-center justify-between rounded-md p-5 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg"
+      class="indexStyle-form h-3/4 w-5/12 flex flex-col items-center justify-between dark:bg-[#000000b0] rounded-md p-5 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg"
     >
-      <nuxtLink class="w-11/12 text-start" to="/">
-        <i class="icon-arrow-left2"></i>
-      </nuxtLink>
+      <div class="flex items-center justify-between">
+        <a class="w-11/12 text-start" href="/">
+          <i class="icon-arrow-left2 dark:text-white"></i>
+        </a>
+        <lightDark />
+      </div>
       <h4 class="">forget password</h4>
 
-      <div class="mt-10 flex border-b">
+      <div class="mt-10 flex items-center border-b">
         <label class="">mobile:</label>
         <input
           v-model.lazy.trim="mobile"
-          class="border-none outline-none bg-transparent focus:ring-0"
+          class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
           type="tel"
           id="mobile"
         />
       </div>
 
-      <small v-if="v$.mobile.$error" class="text-xs ">{{
+      <small v-if="v$.mobile.$error" class="text-xs">{{
         v$.mobile.$errors[0].$message
       }}</small>
 
       <button
+        @submit.prevent="sendLink()"
         :class="{ 'cursor-not-allowed': loading }"
         class="py-2 rounded-md mt-10 mb-5"
         type="submit"

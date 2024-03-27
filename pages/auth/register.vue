@@ -3,19 +3,22 @@
     class="indexStyle bg-[url('@/assets/images/side-login.jpg')] test w-full h-screen flex justify-center items-center"
   >
     <form
-      @submit.prevent="register()"
-      class="indexStyle-form h-3/4 w-5/12 flex flex-col items-center justify-between rounded-md p-5 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg"
+      class="indexStyle-form h-3/4 w-5/12 flex flex-col items-center justify-between rounded-md p-5 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg dark:bg-[#000000b0]"
     >
-      <nuxtLink class="w-11/12 text-start" to="/">
-        <i class="icon-arrow-left2"></i>
-      </nuxtLink>
+      <div class="flex items-center justify-between">
+        <a class="w-11/12 text-start" href="/">
+          <i class="icon-arrow-left2 dark:text-white"></i>
+        </a>
+        <lightDark />
+      </div>
+
       <h4 class="">register</h4>
 
-      <div class="mt-10 flex border-b">
+      <div class="mt-10 flex items-center border-b">
         <label class="text-nowrap" for="firstName">first name:</label>
         <input
           v-model.lazy.trim="formData.firstName"
-          class="border-none outline-none bg-transparent focus:ring-0"
+          class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
           type="text"
           id="firstName"
         />
@@ -25,11 +28,11 @@
         v$.firstName.$errors[0].$message
       }}</small>
 
-      <div class="mt-10 flex border-b">
+      <div class="mt-10 flex items-center border-b">
         <label class="text-nowrap" for="lastName">last name:</label>
         <input
           v-model.lazy.trim="formData.lastName"
-          class="border-none outline-none bg-transparent focus:ring-0"
+          class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
           type="text"
           id="lastName"
         />
@@ -39,11 +42,11 @@
         v$.lastName.$errors[0].$message
       }}</small>
 
-      <div class="mt-6 flex border-b">
+      <div class="mt-6 flex items-center border-b">
         <label class="" for="mobile">mobile:</label>
         <input
           v-model.lazy.trim="formData.mobile"
-          class="border-none outline-none bg-transparent focus:ring-0"
+          class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
           type="tel"
           id="mobile"
         />
@@ -57,11 +60,12 @@
         <label class="" for="password">password:</label>
         <input
           v-model.lazy.trim="formData.password"
-          class="border-none outline-none bg-transparent focus:ring-0"
+          class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
           :type="inputType"
           id="password"
         />
         <i
+        class="dark:text-white"
           @click="toggleHide = !toggleHide"
           :class="[toggleHide ? 'icon-eye' : 'icon-eye-blocked']"
         ></i>
@@ -72,6 +76,7 @@
       }}</small>
 
       <button
+        @submit.prevent="register()"
         :class="{ 'cursor-not-allowed': loading }"
         class="py-2 rounded-md mt-10"
         type="submit"
@@ -82,7 +87,7 @@
       </button>
 
       <span class="flex items-center justify-between mt-10">
-        <NuxtLink to="/auth/login">login </NuxtLink>
+        <NuxtLink class="dark:text-white" to="/auth/login">login </NuxtLink>
       </span>
     </form>
   </div>

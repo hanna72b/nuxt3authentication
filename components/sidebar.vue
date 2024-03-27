@@ -1,5 +1,6 @@
 <template>
   <div
+  v-motion-slide-visible-bottom 
     v-if="usePinia.showSidebar"
     class="defaultStyle__sidebar text-white absolute right-0 z-[1000] flex flex-col items-start p-5 gap-4 shadow w-9/12 h-full md:hidden"
   >
@@ -22,9 +23,7 @@
 </template>
 
 <script setup>
-definePageMeta({
-  middleware: ["auth"],
-});
+
 
 import { useStorPinia } from "~/store/index";
 const usePinia = useStorPinia();

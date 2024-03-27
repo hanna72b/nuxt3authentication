@@ -1,3 +1,91 @@
+.light-mode{
+  .defaultStyle {
+    background-repeat: no-repeat;
+    background-size: cover;
+    &__navbar {
+      width: 96%;
+      // border: 1.5px solid #ffffff;
+      background-color: red;
+      box-shadow: 0px 0px 12px 1px #191919;
+      &-logo {
+        a {
+          color: #525252;
+        }
+      }
+      &-menuList {
+        color: #d8d4d4;
+      }
+  
+      ul {
+        li {
+          a:hover {
+            color: #fff;
+          }
+          .router-link-active {
+            color: rgb(80, 79, 79);
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    &__sidebar {
+      background: #191919f2;
+    }
+    &__main {
+      width: 96%;
+      box-shadow: 0px 0px 12px 1px #191919;
+      &-indexStyle {
+        overflow-y: auto;
+        overflow-x: hidden;
+        --scrollbar-thumb: #6c6c6c99 !important;
+        p {
+          color: #e0e0e0;
+        }
+        &-buttons {
+          width: 25%;
+          a {
+            background-color: rgb(26 26 26 / 15%);
+            width: 40%;
+            text-align: center;
+            padding-top: 0.1rem;
+            padding-bottom: 0.1rem;
+            border-radius: 10px;
+          }
+          a:hover {
+            background-color: rgb(26 26 26 / 36%);
+            color: #b7b7b7;
+          }
+        }
+        &-card {
+          width: 40%;
+          background-color: #ffffff82;
+          border-radius: 10px 99px 99px 10px;
+          &-img {
+            div {
+              width: 2.1rem;
+              a {
+                width: 100%;
+              }
+              a:nth-child(1),
+              a:nth-child(5) {
+                text-align: end;
+              }
+            }
+            img {
+              width: 10rem;
+            }
+          }
+          &-text {
+            p {
+              color: #000000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .defaultStyle {
   background-repeat: no-repeat;
   background-size: cover;

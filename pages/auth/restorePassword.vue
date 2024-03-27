@@ -3,23 +3,26 @@
     class="indexStyle bg-[url('@/assets/images/side-login.jpg')] test w-full h-screen flex justify-center items-center"
   >
     <form
-      @submit.prevent="reStore()"
-      class="indexStyle-form h-3/4 w-6/12 flex flex-col items-center justify-between rounded-md p-5 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg"
+      class="indexStyle-form h-3/4 w-6/12 flex flex-col items-center justify-between rounded-md p-5 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg dark:bg-[#000000b0]"
     >
-      <nuxtLink class="w-11/12 text-start" to="/">
-        <i class="icon-arrow-left2"></i>
-      </nuxtLink>
+      <div class="flex items-center justify-between">
+        <a class="w-11/12 text-start" href="/">
+          <i class="icon-arrow-left2 dark:text-white"></i>
+        </a>
+        <lightDark />
+      </div>
       <h4 class="">restore password</h4>
 
       <div class="mt-6 flex justify-between items-center border-b">
         <label class="" for="password">password:</label>
         <input
           v-model.lazy.trim="formData.password"
-          class="border-none outline-none bg-transparent focus:ring-0"
+          class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
           :type="inputType"
           id="password"
         />
         <i
+          class="dark:text-white"
           @click="toggleHide = !toggleHide"
           :class="[toggleHide ? 'icon-eye' : 'icon-eye-blocked']"
         ></i>
@@ -33,11 +36,12 @@
         <label class="text-nowrap" for="repeatPassword">repeat password:</label>
         <input
           v-model.lazy.trim="formData.repeatPassword"
-          class="w-2/12 border-none outline-none bg-transparent focus:ring-0"
+          class="w-2/12 border-none outline-none bg-transparent focus:ring-0 dark:text-white"
           :type="inputType"
           id="repeatPassword"
         />
         <i
+          class="dark:text-white"
           @click="toggleHide = !toggleHide"
           :class="[toggleHide ? 'icon-eye' : 'icon-eye-blocked']"
         ></i>
@@ -48,6 +52,7 @@
       }}</small>
 
       <button
+        @submit.prevent="reStore()"
         :class="{ 'cursor-not-allowed': loading }"
         class="py-2 rounded-md mt-10"
         type="submit"
@@ -58,8 +63,12 @@
       </button>
 
       <span class="flex items-center justify-between mt-10">
-        <NuxtLink class="" to="/auth/forgetPassword">forget password</NuxtLink>
-        <NuxtLink to="/auth/register">sign up </NuxtLink>
+        <NuxtLink class="dark:text-white" to="/auth/forgetPassword"
+          >forget password</NuxtLink
+        >
+        <NuxtLink class="dark:text-white" to="/auth/register"
+          >sign up
+        </NuxtLink>
       </span>
     </form>
   </div>

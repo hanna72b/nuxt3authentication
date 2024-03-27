@@ -2,16 +2,29 @@
   <div
     class="defaultStyle__main-indexStyle scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg w-full h-full flex flex-col items-center justify-center"
   >
-    <p class="text-xs">welcome to my home page</p>
+    <p v-motion-pop-visible class="text-xs">welcome to my home page</p>
 
     <div
       class="defaultStyle__main-indexStyle-buttons mt-8 flex items-center justify-center gap-5"
     >
-      <nuxt-link to="/auth/login"> login</nuxt-link>
-      <nuxt-link to="/auth/register"> register</nuxt-link>
+      <nuxt-link
+        v-motion-pop-visible
+        class="dark:bg-gray-400 dark:hover:bg-gray-700"
+        to="/auth/login"
+      >
+        login</nuxt-link
+      >
+      <nuxt-link
+        v-motion-pop-visible
+        class="dark:bg-gray-400 dark:hover:bg-gray-700"
+        to="/auth/register"
+      >
+        register</nuxt-link
+      >
     </div>
 
     <div
+      v-motion-slide-visible-left
       class="defaultStyle__main-indexStyle-card flex flex-col-reverse md:flex-row items-center justify-between mt-16 p-1"
     >
       <div
@@ -59,10 +72,14 @@
       </div>
     </div>
 
-    <p class="text-sm mt-10">I love creating beautiful and awesome sites</p>
+    <p v-motion-slide-visible-right class="text-sm mt-10">
+      I love creating beautiful and awesome sites
+    </p>
   </div>
 </template>
 
-<script lang="ts" setup>
-definePageMeta({});
+<script setup>
+definePageMeta({
+  layout: "default",
+});
 </script>
