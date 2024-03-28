@@ -1,0 +1,22 @@
+{
+  "welcome": "welcome to my home page",
+  "home": "home",
+  "website": "website",
+  "dashboard": "dashboard",
+  "login": "Login",
+  "firstName": " first name",
+  "lastName": "last name ",
+  "register": "Register ",
+  "mobile": "mobile",
+  "password": "password",
+  "signup": "sign up",
+  "send": "send",
+  "sendLink": "send link",
+  "forgetPass": "forget password",
+  "bio": "  I love creating beautiful and awesome apps",
+  "frontDev": "Frontend Developer",
+  "myName": "hanna barbad",
+  "contactMe": "Contact Me",
+  "restorePass": "restore password",
+  "rePass": "repeat Password"
+}

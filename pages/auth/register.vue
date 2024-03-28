@@ -6,16 +6,27 @@
       class="indexStyle-form h-3/4 w-5/12 flex flex-col items-center justify-between rounded-md p-5 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg dark:bg-[#000000b0]"
     >
       <div class="flex items-center justify-between">
-        <a class="w-11/12 text-start" href="/">
+        <a
+          :class="[
+            language === 'fa-IR' ? 'rotate-180' : '',
+            language === 'fa-IR' ? 'text-end' : '',
+          ]"
+          class="w-11/12"
+          href="/"
+        >
           <i class="icon-arrow-left2 dark:text-white"></i>
         </a>
+
+        <!-- <ChangeLang /> -->
         <lightDark />
       </div>
 
-      <h4 class="">register</h4>
+      <h4 class="">{{ $t("register") }}</h4>
 
       <div class="mt-10 flex items-center border-b">
-        <label class="text-nowrap" for="firstName">first name:</label>
+        <label class="text-nowrap" for="firstName"
+          >{{ $t("firstName") }} :</label
+        >
         <input
           v-model.lazy.trim="formData.firstName"
           class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
@@ -29,7 +40,7 @@
       }}</small>
 
       <div class="mt-10 flex items-center border-b">
-        <label class="text-nowrap" for="lastName">last name:</label>
+        <label class="text-nowrap" for="lastName"> {{ $t("lastName") }}:</label>
         <input
           v-model.lazy.trim="formData.lastName"
           class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
@@ -43,7 +54,7 @@
       }}</small>
 
       <div class="mt-6 flex items-center border-b">
-        <label class="" for="mobile">mobile:</label>
+        <label class="" for="mobile">{{ $t("mobile") }}:</label>
         <input
           v-model.lazy.trim="formData.mobile"
           class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
@@ -57,7 +68,7 @@
       }}</small>
 
       <div class="mt-6 flex justify-between items-center border-b">
-        <label class="" for="password">password:</label>
+        <label class="text-nowrap" for="password">{{ $t("password") }}:</label>
         <input
           v-model.lazy.trim="formData.password"
           class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
@@ -65,7 +76,7 @@
           id="password"
         />
         <i
-        class="dark:text-white"
+          class="dark:text-white"
           @click="toggleHide = !toggleHide"
           :class="[toggleHide ? 'icon-eye' : 'icon-eye-blocked']"
         ></i>
@@ -76,18 +87,20 @@
       }}</small>
 
       <button
-        @submit.prevent="register()"
+        @click.prevent="register()"
         :class="{ 'cursor-not-allowed': loading }"
         class="py-2 rounded-md mt-10"
-        type="submit"
+        type="button"
         :disabled="isDisabled"
       >
-        <span v-if="!loading">send</span>
+        <span v-if="!loading">{{ $t("send") }}</span>
         <span v-else>Loading . . . </span>
       </button>
 
       <span class="flex items-center justify-between mt-10">
-        <NuxtLink class="dark:text-white" to="/auth/login">login </NuxtLink>
+        <NuxtLink class="dark:text-white" to="/auth/login"
+          >{{ $t("login") }}
+        </NuxtLink>
       </span>
     </form>
   </div>
@@ -98,6 +111,12 @@ import { ref, onMounted, provide } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, minLength, integer, helpers } from "@vuelidate/validators";
 import { useStorPinia } from "~/store/index";
+import { useI18n } from "vue-i18n";
+const { locale } = useI18n();
+
+const language = computed({
+  get: () => locale.value,
+});
 definePageMeta({
   layout: false,
 });

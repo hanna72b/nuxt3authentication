@@ -6,15 +6,24 @@
       class="indexStyle-form h-3/4 w-6/12 flex flex-col items-center justify-between rounded-md p-5 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg dark:bg-[#000000b0]"
     >
       <div class="flex items-center justify-between">
-        <a class="w-11/12 text-start" href="/">
+        <a
+          :class="[
+            language === 'fa-IR' ? 'rotate-180' : '',
+            language === 'fa-IR' ? 'text-end' : '',
+          ]"
+          class="w-11/12"
+          href="/"
+        >
           <i class="icon-arrow-left2 dark:text-white"></i>
         </a>
+
+        <!-- <ChangeLang /> -->
         <lightDark />
       </div>
-      <h4 class="">restore password</h4>
+      <h4 class=""> {{ $t("restorePass") }}</h4>
 
       <div class="mt-6 flex justify-between items-center border-b">
-        <label class="" for="password">password:</label>
+        <label class="text-nowrap" for="password">{{ $t("password") }}:</label>
         <input
           v-model.lazy.trim="formData.password"
           class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
@@ -33,7 +42,7 @@
       }}</small>
 
       <div class="mt-3 flex justify-between items-center border-b">
-        <label class="text-nowrap" for="repeatPassword">repeat password:</label>
+        <label class="text-nowrap" for="repeatPassword"> {{ $t("rePass") }}:</label>
         <input
           v-model.lazy.trim="formData.repeatPassword"
           class="w-2/12 border-none outline-none bg-transparent focus:ring-0 dark:text-white"
@@ -52,22 +61,22 @@
       }}</small>
 
       <button
-        @submit.prevent="reStore()"
+        @click.prevent="reStore()"
         :class="{ 'cursor-not-allowed': loading }"
         class="py-2 rounded-md mt-10"
-        type="submit"
+        type="button"
         :disabled="isDisabled"
       >
-        <span v-if="!loading">send</span>
+        <span v-if="!loading">{{ $t("send") }}</span>
         <span v-else>Loading . . . </span>
       </button>
 
       <span class="flex items-center justify-between mt-10">
         <NuxtLink class="dark:text-white" to="/auth/forgetPassword"
-          >forget password</NuxtLink
+          >{{ $t("forgetPass") }} </NuxtLink
         >
         <NuxtLink class="dark:text-white" to="/auth/register"
-          >sign up
+          > {{ $t("signup") }}
         </NuxtLink>
       </span>
     </form>
@@ -84,6 +93,13 @@ import {
   helpers,
   sameAs,
 } from "@vuelidate/validators";
+
+import { useI18n } from "vue-i18n";
+const { locale } = useI18n();
+
+const language = computed({
+  get: () => locale.value,
+});
 
 definePageMeta({
   layout: false,

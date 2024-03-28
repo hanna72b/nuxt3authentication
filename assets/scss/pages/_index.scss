@@ -1,35 +1,49 @@
-.light-mode{
+.light {
   .defaultStyle {
     background-repeat: no-repeat;
     background-size: cover;
     &__navbar {
       width: 96%;
       // border: 1.5px solid #ffffff;
-      background-color: red;
       box-shadow: 0px 0px 12px 1px #191919;
       &-logo {
         a {
-          color: #525252;
+          // color: #525252;
+          color: #000000;
         }
       }
       &-menuList {
         color: #d8d4d4;
       }
-  
+
       ul {
         li {
+          a {
+            color: #000;
+          }
           a:hover {
-            color: #fff;
+            color: #000000;
           }
           .router-link-active {
-            color: rgb(80, 79, 79);
+            color: #000000;
             font-weight: 600;
           }
         }
       }
     }
     &__sidebar {
-      background: #191919f2;
+      background: #cfcfcff2;
+      ul {
+        li {
+          a {
+            color: #000;
+          }
+          .router-link-active {
+            color: rgb(63 131 248 / 1);
+            font-weight: 600;
+          }
+        }
+      }
     }
     &__main {
       width: 96%;
@@ -84,6 +98,213 @@
       }
     }
   }
+
+  @media (max-width: 469px) {
+    .defaultStyle {
+      &__main {
+        &-indexStyle {
+          p {
+          }
+          &-buttons {
+            width: 40%;
+            a {
+              width: 50%;
+            }
+            a:hover {
+              background-color: rgb(26 26 26 / 36%);
+              color: #b7b7b7;
+            }
+          }
+          &-card {
+            border-radius: 110px 110px 10px 10px;
+            width: 45%;
+            height: 50%;
+            &-img {
+              div {
+                width: auto;
+                height: 2.1rem;
+                column-gap: 1rem;
+                a {
+                  width: auto;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                }
+                a:nth-child(1),
+                a:nth-child(5) {
+                  align-items: start;
+                }
+              }
+            }
+            &-text {
+              margin-top: 1rem;
+              text-align: center;
+              p {
+              }
+              a {
+                font-size: 1rem;
+                span {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //big mobile
+  @media (min-width: 470px) and (max-width: 647px) {
+    .defaultStyle {
+      &__main {
+        &-indexStyle {
+          p {
+          }
+          &-buttons {
+            width: 40%;
+            a {
+              width: 50%;
+            }
+            a:hover {
+              background-color: rgb(26 26 26 / 36%);
+              color: #b7b7b7;
+            }
+          }
+          &-card {
+            border-radius: 99px 99px 10px 10px;
+            height: 50%;
+            &-img {
+              img {
+                width: 15rem;
+              }
+              div {
+                width: auto;
+                height: 2.1rem;
+                column-gap: 1rem;
+                a {
+                  width: auto;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                }
+                a:nth-child(1),
+                a:nth-child(5) {
+                  align-items: start;
+                }
+              }
+            }
+            &-text {
+              margin-top: 1rem;
+              text-align: center;
+              p {
+              }
+              a {
+                font-size: 1rem;
+                span {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // small tablet
+  @media (min-width: 648px) and (max-width: 767px) {
+    .defaultStyle {
+      &__main {
+        &-indexStyle {
+          p {
+          }
+          &-buttons {
+            width: 40%;
+            a {
+              width: 50%;
+            }
+          }
+          &-card {
+            border-radius: 300px 300px 10px 10px;
+            height: 60%;
+            &-img {
+              img {
+                width: 15rem;
+              }
+              div {
+                width: auto;
+                height: 2.1rem;
+                column-gap: 1rem;
+                a {
+                  width: auto;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                }
+                a:nth-child(1),
+                a:nth-child(5) {
+                  align-items: start;
+                }
+              }
+            }
+            &-text {
+              margin-top: 1rem;
+              text-align: center;
+              p {
+              }
+              a {
+                font-size: 1rem;
+                span {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //big tablet
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .defaultStyle {
+      &__main {
+        &-indexStyle {
+          p {
+            font-size: 1.5rem;
+          }
+          &-buttons {
+            font-size: 1.5rem;
+
+            width: 60%;
+            gap: 2rem;
+            a {
+              width: 50%;
+              padding-top: 0.3rem;
+              padding-bottom: 0.3rem;
+            }
+          }
+          &-card {
+            border-radius: 10px 99px 99px 10px;
+            width: 60%;
+            &-img {
+              div {
+              }
+              img {
+                width: 10rem;
+              }
+            }
+            &-text {
+              p {
+                font-size: 1.2rem;
+              }
+              a {
+                font-size: 0.89rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .defaultStyle {
@@ -96,7 +317,7 @@
     box-shadow: 0px 0px 12px 1px #191919;
     &-logo {
       a {
-        color: #525252;
+        color: #000;
       }
     }
     &-menuList {
@@ -106,10 +327,10 @@
     ul {
       li {
         a:hover {
-          color: #fff;
+          color: #474545;
         }
         .router-link-active {
-          color: rgb(80, 79, 79);
+          color: rgb(102, 99, 99);
           font-weight: 600;
         }
       }
@@ -117,6 +338,16 @@
   }
   &__sidebar {
     background: #191919f2;
+    ul {
+      li {
+        a {
+        }
+        .router-link-active {
+          color: rgb(118, 111, 111);
+          font-weight: 600;
+        }
+      }
+    }
   }
   &__main {
     width: 96%;

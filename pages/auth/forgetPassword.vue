@@ -6,17 +6,26 @@
       class="indexStyle-form h-3/4 w-5/12 flex flex-col items-center justify-between dark:bg-[#000000b0] rounded-md p-5 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-lg"
     >
       <div class="flex items-center justify-between">
-        <a class="w-11/12 text-start" href="/">
+        <nuxt-link
+          :class="[
+            language === 'fa-IR' ? 'rotate-180' : '',
+            language === 'fa-IR' ? 'text-end' : '',
+          ]"
+          class="w-11/12"
+          to="/auth/login"
+        >
           <i class="icon-arrow-left2 dark:text-white"></i>
-        </a>
+        </nuxt-link>
+
+        <!-- <ChangeLang /> -->
         <lightDark />
       </div>
-      <h4 class="">forget password</h4>
+      <h4 class="">{{ $t("forgetPass") }}</h4>
 
       <div class="mt-10 flex items-center border-b">
-        <label class="">mobile:</label>
+        <label class="">{{ $t("mobile") }}:</label>
         <input
-          v-model.lazy.trim="mobile"
+          v-model.lazy.trim="formData.mobile"
           class="border-none outline-none bg-transparent focus:ring-0 dark:text-white"
           type="tel"
           id="mobile"
@@ -28,13 +37,13 @@
       }}</small>
 
       <button
-        @submit.prevent="sendLink()"
+        @click.prevent="sendLink()"
         :class="{ 'cursor-not-allowed': loading }"
         class="py-2 rounded-md mt-10 mb-5"
-        type="submit"
+        type="button"
         :disabled="isDisabled"
       >
-        <span v-if="!loading">send link</span>
+        <span v-if="!loading"> {{ $t("sendLink") }}</span>
         <span v-else>Loading . . . </span>
       </button>
     </form>
@@ -45,12 +54,21 @@
 import { ref, onMounted, provide } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, minLength, integer, helpers } from "@vuelidate/validators";
+import { useI18n } from "vue-i18n";
+const { locale } = useI18n();
+
+const language = computed({
+  get: () => locale.value,
+});
 
 definePageMeta({
   layout: false,
 });
 
-const mobile = ref("");
+const formData = reactive({
+  mobile: "",
+});
+
 const loading = ref(false);
 const isDisabled = ref(false);
 
@@ -73,7 +91,7 @@ const validations = computed(() => {
     },
   };
 });
-const v$ = useVuelidate(validations, mobile.value);
+const v$ = useVuelidate(validations, formData);
 
 function sendLink() {
   v$.value.$validate();

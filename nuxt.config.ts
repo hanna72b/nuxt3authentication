@@ -17,7 +17,8 @@ export default defineNuxtConfig({
     "tailwindcss-dark-mode",
     "@nuxtjs/color-mode",
     '@nuxtjs/tailwindcss',
-    '@vueuse/motion/nuxt'
+    '@vueuse/motion/nuxt',
+    "@nuxtjs/i18n"
   ],
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
@@ -35,5 +36,28 @@ export default defineNuxtConfig({
   },
   pinia: {
     // storesDirs: ["./stores/index"],
+  },
+  i18n: {
+    /* module options */
+    locales: [
+      {
+        code: "en-US",
+        iso: "en-US",
+        name: "En",
+        file: "en-US.json",
+        dir: "ltr",
+      },
+      {
+        code: "fa-IR",
+        iso: "fa-IR",
+        name: "Fa",
+        file: "fa-IR.json",
+        dir: "rtl",
+      },
+    ],
+    defaultLocale: "fa-IR",
+    strategy: "no_prefix", //هم زبان غیر پیش فرض  و هم زبان پیش فرض در  url نمایش داده می شود
+    lazy: true,
+    langDir: "assets/lang/", // مسیر فایل های ترجمه در دایرکتوری assets
   },
 });
